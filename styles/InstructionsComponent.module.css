@@ -17,9 +17,8 @@
 .header_container h1 {
 	font-size: 64px;
 	color: #4E4E4E;
-	padding: 2rem;
+	padding: 0 2rem 1rem 2rem;
 }
-
 
 .header_container h1 span {
 	background: linear-gradient(140deg, rgba(54, 190, 255, 1) 0%, rgba(115, 63, 241, 1) 100%);
@@ -38,12 +37,9 @@
 	height: 36px;
 	background: rgba(255, 255, 255, 0.08);
 	border-radius: 8px;
-	padding: .5rem 1rem .5rem .5rem;
+	padding: 2rem;
 	margin-left: .3rem;
 }
-
-
-
 
 .buttons_container {
 	display: flex;
@@ -61,7 +57,7 @@
 	align-items: center;
 	justify-content: center;
 
-	padding: 24px 32px;
+	padding: 12px 24px;
 	gap: 12px;
 
 	width: 392px;

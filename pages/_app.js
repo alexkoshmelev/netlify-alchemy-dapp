@@ -50,6 +50,7 @@ function MyApp({ Component, pageProps }) {
   const account = useAccount({
     onConnect({ address, connector, isReconnected }) {
       if (!isReconnected) router.reload();
+      
     },
   });
   return (
