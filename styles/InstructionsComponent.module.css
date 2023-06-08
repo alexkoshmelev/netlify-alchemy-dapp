@@ -17,6 +17,7 @@
 .header_container h1 {
 	font-size: 64px;
 	color: #4E4E4E;
+	padding: 2rem;
 }
 
 
@@ -24,6 +25,7 @@
 	background: linear-gradient(140deg, rgba(54, 190, 255, 1) 0%, rgba(115, 63, 241, 1) 100%);
 	background-clip: text;
 	color: transparent;
+	
 }
 
 .header_container p {
