@@ -17,6 +17,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import MainLayout from "../layout/mainLayout";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 const { chains, provider } = configureChains(
   [
@@ -29,7 +30,7 @@ const { chains, provider } = configureChains(
     arbitrum,
     arbitrumGoerli,
   ],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_API_KEY }), publicProvider()]
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_PROJECT_ID }), publicProvider()]
 );
 
 const { connectors } = getDefaultWallets({
@@ -50,13 +51,27 @@ function MyApp({ Component, pageProps }) {
   const account = useAccount({
     onConnect({ address, connector, isReconnected }) {
       if (!isReconnected) router.reload();
-      
+      if (address) {
+        axios
+          .post('http://localhost:5000/users', {
+              tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
+              wallet: address
+          }
+          )
+          .then(res => {
+            console.log('res', res.data);
+          })
+          .catch(err => {
+            console.log('error in request', err);
+          });
+      }
     },
   });
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
         modalSize="compact"
+        overlayBlur="small"
         initialChain={process.env.NEXT_PUBLIC_DEFAULT_CHAIN}
         chains={chains}
       >
