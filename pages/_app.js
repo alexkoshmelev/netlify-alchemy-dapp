@@ -18,6 +18,7 @@ import { publicProvider } from "wagmi/providers/public";
 import MainLayout from "../layout/mainLayout";
 import { useRouter } from "next/router";
 import axios from "axios";
+import { useEffect } from "react";
 
 const { chains, provider } = configureChains(
   [
@@ -54,8 +55,8 @@ function MyApp({ Component, pageProps }) {
       if (address) {
         axios
           .post('http://176.9.101.209:5000/users', {
-              tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
-              wallet: address
+            tg_id: window.Telegram.WebApp.initDataUnsafe.user.id,
+            wallet: address
           }
           )
           .then(res => {
@@ -67,6 +68,25 @@ function MyApp({ Component, pageProps }) {
       }
     },
   });
+
+  useEffect(() => {
+    if (account.isConnected) {
+      axios
+        .post('http://176.9.101.209:5000/users', {
+          tg_id: window.Telegram.WebApp.initDataUnsafe.user.id,
+          wallet: address
+        }
+        )
+        .then(res => {
+          console.log('res', res.data);
+        })
+        .catch(err => {
+          console.log('error in request', err);
+        });
+    }
+  }, [account])
+
+
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider
