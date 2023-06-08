@@ -1,6 +1,8 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import styles from "../../styles/Navbar.module.css";
 import { useAccount } from "wagmi";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Navbar() {
 
