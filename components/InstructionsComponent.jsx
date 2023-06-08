@@ -17,7 +17,7 @@ export default function InstructionsComponent() {
 				<div className={styles.icons_container}>
 					<div>
 						<a
-							href="https://github.com/alchemyplatform/create-web3-dapp"
+							href="https://clutch.co/profile/ois-solutions#summary"
 							target={"_blank"}
 						>
 							Leave us a star on Clutch
@@ -25,7 +25,7 @@ export default function InstructionsComponent() {
 					</div>
 					<div>
 						<a
-							href="https://twitter.com/AlchemyPlatform"
+							href="https://www.linkedin.com/company/ois-solutions-dev/"
 							target={"_blank"}
 						>
 							Follow us on LinkedIn
