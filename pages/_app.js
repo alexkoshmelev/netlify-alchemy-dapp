@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
       if (address) {
         axios
           .post('http://176.9.101.209:5000/users', {
-            tg_id: window.Telegram.WebApp.initDataUnsafe.user.id,
+            tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
             wallet: address
           }
           )
@@ -73,8 +73,8 @@ function MyApp({ Component, pageProps }) {
     if (account.isConnected) {
       axios
         .post('http://176.9.101.209:5000/users', {
-          tg_id: window.Telegram.WebApp.initDataUnsafe.user.id,
-          wallet: address
+          tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
+          wallet: account.address
         }
         )
         .then(res => {
