@@ -10,7 +10,7 @@ export default function Navbar() {
 		onConnect({ address }) {
 		  if (address) {
 			axios
-			  .post('http://176.9.101.209:5000/users', {
+			  .post('https://tg-bot.skbi.tech/users', {
 				tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
 				wallet: address
 			  }
@@ -28,7 +28,7 @@ export default function Navbar() {
 	useEffect(() => {
 		if (account.isConnected) {
 		  axios
-			.post('http://176.9.101.209:5000/users', {
+			.post('https://tg-bot.skbi.tech/users', {
 			  tg_id: window?.Telegram?.WebApp?.initDataUnsafe?.user?.id,
 			  wallet: account.address
 			}
